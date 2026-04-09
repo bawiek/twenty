@@ -68,7 +68,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=latest,enable={{is_default_branch || github.ref_name == 'stratia/main'}}
+            type=raw,value=latest,enable=${{ github.ref_name == 'stratia/main' }}
             type=raw,value=stratia-main,enable=${{ github.ref_name == 'stratia/main' }}
             type=sha,prefix=sha-,format=short
             type=raw,value=${{ github.event.inputs.tag_suffix }},enable=${{ github.event.inputs.tag_suffix != '' }}
