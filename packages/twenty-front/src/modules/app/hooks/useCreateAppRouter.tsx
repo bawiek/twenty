@@ -28,6 +28,12 @@ const RecordShowPage = lazy(() =>
   })),
 );
 
+const MyTasksPage = lazy(() =>
+  import('@/stratia/tasks/components/MyTasksPage').then((module) => ({
+    default: module.MyTasksPage,
+  })),
+);
+
 const SignInUp = lazy(() =>
   import('~/pages/auth/SignInUp').then((module) => ({
     default: module.SignInUp,
@@ -204,6 +210,14 @@ export const useCreateAppRouter = (
             }
           />
           <Route path={indexAppPath.getIndexAppPath()} element={<></>} />
+          <Route
+            path="/objects/tasks"
+            element={
+              <LazyRoute>
+                <MyTasksPage />
+              </LazyRoute>
+            }
+          />
           <Route
             path={AppPath.RecordIndexPage}
             element={

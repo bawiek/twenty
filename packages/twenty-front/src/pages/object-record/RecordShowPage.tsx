@@ -13,6 +13,7 @@ import { PageLayoutRecordPageRenderer } from '@/object-record/record-show/compon
 import { RecordShowPageSSESubscribeEffect } from '@/object-record/record-show/components/RecordShowPageSSESubscribeEffect';
 import { useRecordShowPage } from '@/object-record/record-show/hooks/useRecordShowPage';
 import { computeRecordShowComponentInstanceId } from '@/object-record/record-show/utils/computeRecordShowComponentInstanceId';
+import { StratiaLeadDetailPanel } from '@/stratia/lead-detail/components/StratiaLeadDetailPanel';
 import { PageHeaderToggleSidePanelButton } from '@/ui/layout/page-header/components/PageHeaderToggleSidePanelButton';
 import { PageContainer } from '@/ui/layout/page/components/PageContainer';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
@@ -71,6 +72,10 @@ export const RecordShowPage = () => {
               )}
             </RecordShowPageHeader>
             <MainContainerLayoutWithSidePanel>
+              <StratiaLeadDetailPanel
+                objectNameSingular={objectNameSingular}
+                objectRecordId={objectRecordId}
+              />
               <TimelineActivityContext.Provider
                 value={{
                   recordId: objectRecordId,

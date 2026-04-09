@@ -15,6 +15,7 @@ import { useAtomState } from '@/ui/utilities/state/jotai/hooks/useAtomState';
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomState';
 
+import { StratiaNavigationItem } from '@/stratia/tasks/components/StratiaNavigationItem';
 import { NavigationDrawerAnimatedCollapseWrapper } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerAnimatedCollapseWrapper';
 import { NavigationDrawerItem } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerItem';
 import { NavigationDrawerSection } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerSection';
@@ -69,6 +70,7 @@ export const NavigationDrawerOtherSection = () => {
         containAnimation
         initial={false}
       >
+        <StratiaNavigationItem />
         <NavigationDrawerItem
           label={t`Settings`}
           Icon={IconSettings}
