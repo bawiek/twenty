@@ -19,7 +19,7 @@ export const buildLeadVisibilityFilter = (
       return {
         or: [
           { assignedMemberId: { eq: currentUserId } },
-          { stage: { eq: 'PRET_POUR_CLOSING' } },
+          { handoffStatus: { eq: 'PRET_POUR_CLOSING' } },
         ],
       };
     default:

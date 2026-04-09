@@ -15,14 +15,21 @@ describe('buildLeadVisibilityFilter', () => {
     });
   });
 
-  it('should return OR filter for CLOSER role (own leads + pret pour closing)', () => {
+  it('should return OR filter for CLOSER role (own leads + handoff pret pour closing)', () => {
     const result = buildLeadVisibilityFilter('CLOSER', userId);
     expect(result).toEqual({
       or: [
         { assignedMemberId: { eq: 'user-123' } },
-        { stage: { eq: 'PRET_POUR_CLOSING' } },
+        { handoffStatus: { eq: 'PRET_POUR_CLOSING' } },
       ],
     });
+  });
+
+  it('should NOT reference the non-existent stage=PRET_POUR_CLOSING (Phase 2 bug fix)', () => {
+    const result = buildLeadVisibilityFilter('CLOSER', userId);
+    const json = JSON.stringify(result);
+    expect(json).not.toContain('"stage"');
+    expect(json).toContain('"handoffStatus"');
   });
 
   it('should default to most restrictive (setter-like) filter for unknown role', () => {
