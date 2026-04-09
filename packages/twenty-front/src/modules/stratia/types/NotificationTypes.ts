@@ -12,7 +12,8 @@ export type StratiaNotificationType =
 export type StratiaNotification = {
   id: string;
   recipientId: string;
-  type: StratiaNotificationType;
+  // Renamed from `type` — reserved field name in Twenty metadata API (v1.20.0).
+  notificationType: StratiaNotificationType;
   title: string;
   body: string | null;
   linkedOpportunityId: string | null;
